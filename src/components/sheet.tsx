@@ -96,6 +96,7 @@ const SuggestionsSheet = () => {
         ease: "easeInOut",
         duration: animationDuration,
       }}
+      className="max-w-[480px] w-full m-auto"
     >
       <Sheet.Container>
         <Sheet.Content>

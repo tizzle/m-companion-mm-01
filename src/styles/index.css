@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
+html {
 	@apply h-full;
 }
+
+body {
+	@apply h-full;
+}
+
+#root {
+	@apply h-full overflow-hidden max-w-[480px] m-auto;
+}
+

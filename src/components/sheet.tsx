@@ -32,6 +32,10 @@ const SuggestionsSheet = () => {
     sheetRef.current?.snapTo(2);
   };
 
+  const handleShowAllClick = () => {
+    sheetRef.current?.snapTo(0);
+  };
+
   React.useEffect(() => {
     console.log();
     setIsSheetOpen(true);
@@ -107,9 +111,10 @@ const SuggestionsSheet = () => {
                 Buy from our online shop instead
               </p>
               <a
-                className="text-interaction"
-                href="https://www.metro.de/marktplatz/search?q=FritzBox"
-                target={linkTarget}
+                className="cursor-pointer text-interaction"
+                // href="https://www.metro.de/marktplatz/search?q=FritzBox"
+                onClick={handleShowAllClick}
+                // target={linkTarget}
               >
                 Show All
               </a>

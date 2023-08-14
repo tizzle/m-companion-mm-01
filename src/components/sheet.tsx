@@ -15,6 +15,8 @@ const SuggestionsSheet = () => {
   const articleRef = React.createRef<HTMLDivElement>();
   const articlesRef = React.createRef<HTMLDivElement>();
 
+  const [canExpand, setCanExpand] = React.useState(true);
+
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   const [snapPointThree, setSnapPointThree] = React.useState(215);
   const [snapPointFour, setSnapPointFour] = React.useState(512);
@@ -33,7 +35,13 @@ const SuggestionsSheet = () => {
   };
 
   const handleShowAllClick = () => {
-    sheetRef.current?.snapTo(0);
+    if (canExpand) {
+      sheetRef.current?.snapTo(0);
+      setCanExpand(false);
+    } else {
+      sheetRef.current?.snapTo(2);
+      setCanExpand(true);
+    }
   };
 
   React.useEffect(() => {
@@ -89,11 +97,21 @@ const SuggestionsSheet = () => {
     stepThreeFinished,
   ]);
 
+  const handleSnap = React.useCallback((index: number) => {
+    // console.log("snap", index);
+    if (index === 0) {
+      setCanExpand(false);
+    } else {
+      setCanExpand(true);
+    }
+  }, []);
+
   return (
     <Sheet
       ref={sheetRef}
       isOpen={isSheetOpen}
       onClose={handleClose}
+      onSnap={handleSnap}
       snapPoints={[snapPointFour, snapPointThree, 104, 0]}
       initialSnap={3}
       tweenConfig={{
@@ -116,7 +134,7 @@ const SuggestionsSheet = () => {
                 onClick={handleShowAllClick}
                 // target={linkTarget}
               >
-                Show All
+                {canExpand ? "Show" : "Hide"}
               </a>
             </div>
             <hr className="w-full border-t border-grey-tint-90" />

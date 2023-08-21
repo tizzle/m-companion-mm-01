@@ -13,7 +13,7 @@ const AppBar = () => {
       </div>
       <div className="flex flex-col items-center justify-center flex-grow -space-y-0.5">
         <PromotionsIcon className="w-8 h-8" />
-        <span className="text-xxs">Promotions</span>
+        <span className="text-xxs">Angebote</span>
       </div>
       <div className="flex flex-col items-center justify-center flex-grow -space-y-0.5">
         <ShoppingListIcon className="w-8 h-8" />

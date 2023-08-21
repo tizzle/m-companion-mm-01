@@ -36,7 +36,7 @@ const Home = () => {
             className="text-blue-500 cursor-pointer text-14"
             onClick={handleClearLastSearched}
           >
-            Delete all
+            Alle löschen
           </p>
         </div>
         {lastSearched.map((l) => (

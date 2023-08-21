@@ -1,22 +1,19 @@
 import React from "react";
-import AppBar from "./components/app-bar";
-import FilterBar from "./components/filter-bar";
-import SuggestionsSheet from "./components/sheet";
-import StoreBar from "./components/store-bar";
-import TopBar from "./components/top-bar";
-import ZeroSearch from "./components/zero-search";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./routes/home";
+import SearchResults from "./routes/search-results";
 
 const stopReloadTouch = true;
 
 const App = () => {
   React.useEffect(() => {
-    console.log("startup effect");
+    // console.log("startup effect");
     window.addEventListener(
       "touchmove",
       (ev) => {
-        console.log("touch move");
+        // console.log("touch move");
         if (stopReloadTouch) {
-          console.log("stopped propagation");
+          // console.log("stopped propagation");
           ev.preventDefault();
           ev.stopImmediatePropagation();
         }
@@ -27,12 +24,12 @@ const App = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <TopBar />
-      <StoreBar />
-      <FilterBar />
-      <ZeroSearch />
-      <SuggestionsSheet />
-      <AppBar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/results" Component={SearchResults} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

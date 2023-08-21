@@ -126,7 +126,7 @@ const SuggestionsSheet = () => {
             <div className="h-1 rounded-full bg-grey-tint-90 w-9" />
             <div className="flex justify-between w-full px-4 py-3 text-14">
               <p className="flex-grow font-medium text-darkBlue">
-                Buy from our online shop instead
+                Kaufen Sie stattdessen im Online Shop
               </p>
               <a
                 className="cursor-pointer text-interaction"
